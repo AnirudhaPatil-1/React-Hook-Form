@@ -1,21 +1,53 @@
-
 import React from "react";
 
+import { useForm } from "react-hook-form";
+
 export const YouTubeForm = () => {
-    return (
-        <div>
-            <form>
-                <label htmlFor="username">Username</label>
-                <input type="text" id="username" name="username" />
+  const form = useForm();
+  const { register } = form;
+    const { name, ref, onChange, onBlur } = register("userName");
+//   const {name, ref, onChange, onBlur} = register("email" );
+//   const { name, ref, onChange, onBlur} = register("channel");
 
-                <label htmlFor="email">Email</label>
-                <input type="email" id="email" name="email" />
 
-                <label htmlFor="channel">Channel</label>
-                <input type="text" id="channel" name="channel" />
+  return (
+    <div>
+      <form>
+        <label htmlFor="username">Username</label>
+        <input
+            type="text"
+            id="username"
+            name={name}
+            ref={ref}
+            onChange={onChange}
+            onBlur={onBlur}
+            //   {...register("username")}
+        />
 
-                <button type="submit">Submit</button>
-            </form>
-        </div>
-    );
+        <label htmlFor="email">Email</label>
+        <input 
+            type="email" 
+            id="email" 
+            // name="email"
+            name={name}
+            ref={ref}
+            onChange={onChange}
+            onBlur={onBlur}
+        />
+
+        <label htmlFor="channel">Channel</label>
+        <input 
+            type="text" 
+            id="channel"
+            name="channel"
+            // name={name}
+            // ref={ref}
+            // onChange={onChange}
+            // onBlur={onBlur}
+        />
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  );
 };
